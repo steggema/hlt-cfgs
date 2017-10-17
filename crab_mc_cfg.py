@@ -5,10 +5,10 @@ config = config()
 config.General.transferOutputs = True
 config.General.transferLogs    = True
 
-config.JobType.psetName        = 'customise_may2017_aod_cfg.py'
+config.JobType.psetName        = 'customise_aug2017_aod_cfg.py'
 config.JobType.pluginName      = 'Analysis'
 config.JobType.outputFiles     = ['outputFULL_ztt.root']
-config.JobType.maxMemoryMB     = 2499
+config.JobType.maxMemoryMB     = 3000
 config.JobType.priority        = 999
 
 config.Data.unitsPerJob        = 1000
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     from CRABClient.ClientExceptions import ClientException
     from httplib import HTTPException
 
-    tag = 'HPSatHLT_91X_relax_1p2p'
+    tag = 'HPSatHLTplusreco_91X_RAM'
 
     # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
     # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         config.General.requestName = k
         config.Data.inputDataset          = v[0]
         config.Data.secondaryInputDataset = v[1]
-        config.JobType.numCores = 4
+        config.JobType.numCores = 1
         print 'submitting config:'
         print config
         submit(config)
